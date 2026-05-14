@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StockManagementMVC.Models;
 
 namespace StockManagementMVC.Repository
 {
@@ -7,5 +8,6 @@ namespace StockManagementMVC.Repository
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
+        public DbSet<ProductModel> Products { get; set; }
     }
 }
