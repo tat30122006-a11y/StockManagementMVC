@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using StockManagementMVC.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Connected sql
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectedDb"]);
+});
 
 var app = builder.Build();
 
